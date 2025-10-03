@@ -1,22 +1,26 @@
-// Audio setup
-let audio;
-function playAudio() {
-  if(!audio) {
-    audio = new Audio('song.mp3');
-    audio.loop = true;
-    audio.play().catch(() => {}); // ignores errors
-  } else {
-    audio.play();
-  }
-}
+// Setup audio
+const audio = new Audio('song.mp3');
+audio.loop = true;
+audio.volume = 0; // start muted to allow autoplay
+audio.play().catch(()=>{}); // autoplay muted
 
-// Create falling hearts
+// On first user interaction, unmute audio
+let firstClick = true;
+document.addEventListener('click', () => {
+  if(firstClick){
+    audio.volume = 1;
+    firstClick = false;
+  }
+});
+
+// Falling hearts
 function createHeart() {
   const heart = document.createElement('div');
   heart.classList.add('heart');
   heart.style.left = Math.random() * window.innerWidth + 'px';
-  heart.style.width = 20 + Math.random() * 20 + 'px';
-  heart.style.height = heart.style.width;
+  const size = 20 + Math.random() * 20;
+  heart.style.width = size + 'px';
+  heart.style.height = size + 'px';
   heart.style.animationDuration = 3 + Math.random() * 3 + 's';
   document.getElementById('hearts').appendChild(heart);
 

@@ -1,4 +1,3 @@
-/* Body and background */
 body {
   margin: 0;
   padding: 0;
@@ -13,7 +12,6 @@ body {
   text-align: center;
 }
 
-/* Container for message */
 .container {
   background: rgba(0,0,0,0.4);
   padding: 30px 50px;
@@ -28,5 +26,32 @@ h1 {
   text-shadow: 2px 2px 5px #000;
 }
 
-/* Hearts */
-#he
+p {
+  font-size: 1rem;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px #000;
+}
+
+#hearts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: url('heart.png') no-repeat center/contain;
+  animation-name: fall;
+  animation-timing-function: linear;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}

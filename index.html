@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Boyfriend's Day</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Boyfriend's Day</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px #000;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(45deg);
+            animation: fall 5s linear infinite;
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes fall {
+            0% { top: -50px; left: calc(100% * var(--random)); }
+            100% { top: 100vh; left: calc(100% * var(--random)); }
+        }
+    </style>
 </head>
 <body>
+    <h1>Happy Boyfriend's Day!I know you probably didnt remember this day and its totally okay babe. Dont stress out, I Lve You Soo Soo Muchhh and i hope this self created website makes you feel a little special even if its my day, yet i am going to dedicate it to you! Thank you for being such a loveable wife! Much love always! - Soumil Mahajan</h1>
 
-<div class="container">
-  <h1>Happy Boyfriend's Day!I know you probably didnt remember this day and its totally okay babe. Dont stress out, I Lve You Soo Soo Muchhh and i hope this self created website makes you feel a little special even if its my day, yet i am going to dedicate it to you! Thank you for being such a loveable wife! Much love always! - Soumil Mahajan</h1>
-  <p>Tap anywhere to start the music if it’s not playing automatically 🎵</p>
-</div>
+    <div id="hearts"></div>
 
-<div id="hearts"></div>
+    <audio autoplay loop>
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
-<script src="script.js"></script>
+    <script>
+        const heartsContainer = document.getElementById('hearts');
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.setProperty('--random', Math.random());
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = 3 + Math.random() * 5 + 's';
+            heartsContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 8000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>

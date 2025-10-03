@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,4 +18,25 @@
 
   <script src="script.js"></script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This is For You ❤</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" onclick="startAudio()">
+    <h1>Happy Boyfriend's Day, <span id="name">[Soumil My Doodoo]</span> 🎉</h1>
+    <p id="message">You are the best thing that has happened to me. Even though its boyfriend's day and i know you probablu=y dont remeber because you're busy and stressed about alot of things but its okay babe. Everyday to me is Your day ever since you've entered my life. I pray for your betterment and happiness always and I Love You the mostt and may this thing brings a smile on your face. 💕</p>
+    <button onclick="startAudio()">Play Music 🎶</button>
+  </div>
+
+  <div id="hearts"></div>
+
+  <script src="script.js"></script>
+</body>
+>>>>>>> 5ed907d82ad792a445d9e29092347499ee8f6758
 </html>
